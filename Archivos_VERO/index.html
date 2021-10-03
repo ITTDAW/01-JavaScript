@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script type="text/javascript">
+/*Req1-.Realiza un programa en JavaScript que recorra un array de 10 números y calcule la media aritmética
+de diez números.Los números deben de estar comprendidos entre el 0 y 100, si se detectará algún número fuera
+de ese rango no se tendría en cuenta para su cálculo.*/
+
+let arrayAleat=[];// declaramos array vacío
+let suma=0;// declaramos e inicializamos en 0 la variable suma que guardará la suma de los valores del array
+
+//Recorremos el array que tendrá 10 posiciones para que nos incluya un valor ENTERO -Math.floor
+//y ALEATORIO - Math.random entre 0 y 100
+for (let i = 0; i <= 9; i++) {
+    arrayAleat[i]=Math.floor((Math.random() * (101-0))+0);
+    suma=suma+arrayAleat[i]; //guardamos la suma de los valores del array en la variable suma
+}
+let mediaArit=suma/10; //calculamos la media aritmética de los valores
+
+/*Req2-.Calcular también la moda*/
+
+/*function moda(){
+    let contador=0;
+    
+    //ver cuántas veces se repite un número en el array
+    for (let i = 0; i < arrayAleat.length; i++) {
+        let valor = arrayAleat[i];
+        let valorcomp=arrayAleat[i++]
+        if (valor==valorcomp ){
+            contador++
+        }
+        else valor= valor
+
+        
+    }
+
+}*/
+
+console.log(arrayAleat)
+console.log(suma)
+console.log(mediaArit)
+
+
+
+
+</script>
+<body>
+    
+</body>
+</html>
