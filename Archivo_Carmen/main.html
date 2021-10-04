@@ -8,10 +8,10 @@
 		/**
 		 *
 		 * Requerimiento 1: Recorrer array de 10 números aleatorios entre 0 y 100 y calcular media. Fuera del rango (0-100) no se tendrá en cuenta.
+		 * 
+		 * Declarar variables array y suma. Inicializar suma a 0
 		 *
 		 */
-		
-		<!-- declarar variables array y suma. Inicializar suma a 0 -->
 		var array1 = [];
 		var suma = 0; 
 
@@ -31,6 +31,33 @@
 		 console.log(array1);
 		 console.log(suma);
 		 console.log(media);
+
+		 /**
+		  *
+		  * La mediana es el número medio en una lista ordenada, ascendente o descendente de números.
+		  * Primero ordenamos el array. Si su tamaño es par, necesitaremos lógica adicional para tratar con dos números medios.
+		  *
+		  */
+		 let Median = (array1 = []) => {
+   		 
+   		 	let sorted = array1.slice().sort((a, b) => {
+      	 	return a - b;
+   		 	});
+   			
+
+   		 	if(sorted.length % 2 === 0){
+      			let first = sorted[sorted.length / 2 - 1];
+      			let second = sorted[sorted.length / 2];
+      			return (first + second) / 2;
+   			}
+   			else{
+      			let mid = Math.floor(sorted.length / 2);
+      			return sorted[mid];
+   			};
+		 };
+		
+
+		console.log(Median(array1));
 		
 
 		
