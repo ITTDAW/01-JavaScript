@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ejercicio JavaScript con script dentro del head</title>
+
+	<script type="text/javascript">
+		/**
+		 *
+		 * Requerimiento 1: Recorrer array de 10 números aleatorios entre 0 y 100 y calcular media. Fuera del rango (0-100) no se tendrá en cuenta.
+		 *
+		 */
+		
+		<!-- declarar variables array y suma. Inicializar suma a 0 -->
+		var array1 = [];
+		var suma = 0; 
+
+		/**
+		 *
+		 * Recorrer array con bucle for, que tendrá valores aleatorios utilizando el método math.random entre 0 y 100+1. Con el método math.floor redondeamos hacia abajo para tener enteros.
+		 *
+		 */
+		 for (var i = 0; i < 10; i++) {
+
+		 	array1[i] = Math.floor ((Math.random() * 100+1));
+		 	suma = suma + array1 [i];
+		 }
+
+		 var media = suma/10;
+
+		 console.log(array1);
+		 console.log(suma);
+		 console.log(media);
+		
+
+		
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>
+		
+	
