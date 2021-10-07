@@ -102,25 +102,25 @@
   }       
 
           
-            
-  
-
-       
- /*Si no hay ningun valor superior en ningun momento al maximo, pues establecemos para cadena un mensaje*/
-
-  if (!sihay){
-
-    cadena="La moda no existe / Ningún numero repetido"
-    document.getElementById("resultadomoda").innerHTML= "La moda de los números es: "+ cadena ;
-  } else   {
-
-  /*Sino pues, asegurandonos primero de que el array esta cargado para escapar del undefined, establecemos el valor de la cadena
+   /*Primero nos aseguramos de que el array esta cargado para escapar del undefined, establecemos el valor de la cadena
   para el elemento del id resultadomoda*/
 
  if (miarray.length==0){
 
   document.getElementById("resultadomoda").innerHTML= "No hay números generados" ;
-  
+ }else {
+
+ /*Si no hay ningun valor superior en ningun momento al maximo (no exiten numeros repetidos), pues establecemos para cadena un mensaje*/
+
+  if (!sihay){
+
+    cadena="La moda no existe / Ningún numero repetido"
+    document.getElementById("resultadomoda").innerHTML= "La moda de los números es: "+ cadena ;
+                
+ 
+
+ 
+ 
 }else{
   document.getElementById("resultadomoda").innerHTML= "La moda de los números es: "+ cadena ;
 }
