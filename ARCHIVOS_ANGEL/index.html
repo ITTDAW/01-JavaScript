@@ -45,21 +45,31 @@ for (let i=0; i<arrayCont.length; i++){
 
 let Media= suma/10;
 for (let i = 0; i < arrayCont.length; i++) {
-        sum += arrayCont[i];
+        suma += arrayCont[i];
     }
 
 //Calcular la Mediana
+//La mediana es el numero que se encuentra en la posicion del ""medio" en el array
+// Si la longitud es par, se debe hacer promedio los del centro
 
-let Mediana = arrayCont.length/2;
-    if (arrayCont.length%2 == 1) {
-        return arrayCont[middle];
-    } else {
-        return (arrayCont[middle-1] + arrayCont[middle]) / 2.0;
-    }
+
+let mediana=0;
+let mitad = arrayCont.length / 2;
+
+if (arrayCont.length % 2 == 0) {
+    mediana = (arrayCont[mitad - 1] + arrayCont[mitad]) / 2;
+} else {
+    mediana = arrayCont[mitad];
+}
 
 //Calcular la moda 
+//La moda es el resultado del numero (mas) repetido 
+//declaramos las variables moda y masContado
+//para calcularla recorremos los arrays en busca de numeros que se repitan
+//a continuacion comparamos la posicion con el numero que se repite mas veces en el array (moda)
 
-let Moda= masVeces,masContado;
+let Moda=0;
+let masContado=0;
 
 for (let i = 0; i < arrayCont.length; ++i) {
     let count = 0;
@@ -68,9 +78,9 @@ for (let i = 0; i < arrayCont.length; ++i) {
     }
     if (count > masContado) {
         masContado = count;
-        masVeces = arrayCont[i];
+        moda = arrayCont[i];
     }
-    return masVeces;
+    //return moda;
 }
 
 
