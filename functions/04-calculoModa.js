@@ -36,8 +36,10 @@
                     if(miarray[i] == miarray[j])
                         vecesQueSeRepite++;
                   }
-        /*Salimos de ese segundo for y comparamos el termino vecesQueSeRepite con maxiamVecesQueSeRepite, primero lo comparamos si 
-        el numero vecesQueSeRepite que acabamos de obtener es igual a maximaVecesQueSeRepite*/
+        /*Salimos de ese segundo for y comparamos el termino vecesQueSeRepite con maxiamVecesQueSeRepite:
+      
+      
+      ---->  primero lo comparamos si el numero vecesQueSeRepite que acabamos de obtener es igual a maximaVecesQueSeRepite*/
        
         if(vecesQueSeRepite == maximaVecesQueSeRepite){
                   
@@ -47,7 +49,8 @@
                       maximaVecesQueSeRepite = vecesQueSeRepite;
                     }else{
           /*Si el numero de vecesQueSeRepite es igual a maximaVecesQueSeRepite y mayor de 1, entonces, primero tenemos que comparar
-          que no sea nuestro numero repetido que ya hemos añadido a la cadena*/
+          que no sea nuestro numero repetido que ya hemos añadido a la cadena, aquí es importante tener el array ordenado, 
+          sino nuestro código no funcionaria*/
                       if (miarray[i]==miarray[i-1]){
 
                       }else{
