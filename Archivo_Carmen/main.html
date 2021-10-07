@@ -5,6 +5,8 @@
 	<title>Ejercicio JavaScript con script dentro del head</title>
 
 	<script type="text/javascript">
+
+
 		/**
 		 *
 		 * Requerimiento 1: Recorrer array de 10 números aleatorios entre 0 y 100 y calcular media. Fuera del rango (0-100) no se tendrá en cuenta.
@@ -12,8 +14,12 @@
 		 * Declarar variables array y suma. Inicializar suma a 0
 		 *
 		 */
+
+
 		var array1 = [];
 		var suma = 0; 
+
+
 
 		/**
 		 *
@@ -22,25 +28,28 @@
 		 */
 		 for (var i = 0; i < 10; i++) {
 
-		 	array1[i] = Math.floor ((Math.random() * 100+1));
+		 	array1[i] = Math.floor ((Math.random() * 100 + 1));
 		 	suma = suma + array1 [i];
 		 }
 
 		 var media = suma/10;
 
-		 console.log(array1);
-		 console.log(suma);
-		 console.log(media);
+		 console.log('Arreglo de números aleatorios: ',array1);
+		 console.log('Suma: ',suma);
+		 console.log('Media: ',media);
 
 		 /**
 		  *
-		  * La mediana es el número medio en una lista ordenada, ascendente o descendente de números.
-		  * Primero ordenamos el array. Si su tamaño es par, necesitaremos lógica adicional para tratar con dos números medios.
+		  * La mediana es el número medio en una lista ordenada, ascendente o descendente de números. Para calular Median del array1:
+		  * 
+		  * Primero ordenamos el array con el método sort() y lo guardo en la variable sorted.
+		  * 
+		  * Si su tamaño es par, necesitaremos lógica adicional para tratar con dos números medios. 
 		  *
 		  */
 		 let Median = (array1 = []) => {
    		 
-   		 	let sorted = array1.slice().sort((a, b) => {
+   		 	let sorted = array1.sort((a, b) => {
       	 	return a - b;
    		 	});
    			
@@ -57,7 +66,57 @@
 		 };
 		
 
-		console.log(Median(array1));
+		console.log('Mediana: ',Median(array1));
+
+		/**
+		 *
+		 * Para calcular la moda que es el número que más se repite en un conjunto, recorro el array para encontrar la frecuencia con la que se repiten los números.
+		 *
+		 */
+		
+
+		let mode=0;
+		let frecuencia=0;
+
+
+		for (let i = 0; i < array1.length; ++i) {
+    			
+    			let num = 0;
+    			
+    			for (let j = 0; j < array1.length; ++j) {
+       	 			
+       	 			if (array1[j] == array1[i]) ++num;
+    			
+   					if (num > frecuencia) 
+   					{
+        			
+        			frecuencia = num;
+        			mode = array1[i];
+        			}
+
+        		}
+        }
+
+        console.log('Moda: ', mode);
+
+        
+
+        //imprimo por pantalla
+
+        document.write("Array de números aleatorios de 0 a 100 : " + array1);
+        document.write("<br> ");
+        document.write("SUMA: " + suma);
+        document.write("<br> ");
+        document.write("MEDIA: " + media);
+        document.write("<br> ");
+        document.write("MEDIANA: " + Median(array1));
+        document.write("<br> ");
+        document.write("MODA: " + mode);
+
+
+
+
+
 		
 
 		
