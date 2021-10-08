@@ -10,9 +10,11 @@
   function moda(){
 
     /*Declaramos dos variables, la primera establece el numero maximo de veces que se repite un numero y que obtenemos 
-    cuando ya hemos recorrido toda nuestra matriz   y la segunda es el valor de la moda que obtendremos en la posicion correspondiente*/
+    cuando ya hemos recorrido toda nuestra matriz, como vamos a comparar una matriz formada por los valores del array en las 
+    cabeceras, lo establecemos a 1 porque ese valor lo va a dar siempre aunque no haya moda y hay que descartarlo.
+      y la segunda es el valor de la moda que obtendremos en la posicion correspondiente*/
      
-    let maximaVecesQueSeRepite = 0;
+    let maximaVecesQueSeRepite = 1;
     let modavalor =0;
     
     /*Declaramos una variable string cadena, la razón es porque si hay mas de un numero que se repite las mismas veces que otro
@@ -43,12 +45,8 @@
        
         if(vecesQueSeRepite == maximaVecesQueSeRepite){
                   
-          /*Tambien tenemos que tener en cuenta que si solo se ha repetido una vez eso significa que no esta repetido dos veces, es el
-          resultado de comparar el mismo miembro de la matriz*/
-                    if (vecesQueSeRepite==1){
-                      maximaVecesQueSeRepite = vecesQueSeRepite;
-                    }else{
-          /*Si el numero de vecesQueSeRepite es igual a maximaVecesQueSeRepite y mayor de 1, entonces, primero tenemos que comparar
+         //Aqui entraria tambien cuando no hay moda, pero no pone la variable sihay=true y por lo tanto sabemos que no hay moda
+          /*Si el numero de vecesQueSeRepite es igual a maximaVecesQueSeRepite , entonces, primero tenemos que comparar
           que no sea nuestro numero repetido que ya hemos añadido a la cadena, aquí es importante tener el array ordenado, 
           sino nuestro código no funcionaria*/
                       if (miarray[i]==miarray[i-1]){
@@ -61,25 +59,12 @@
                                 
                                 cadena= cadena + modavalor + " , "
                                 maximaVecesQueSeRepite = vecesQueSeRepite;
-
-                      }
-
-                              
+                       }
                     
-                               
-                    
-                    }
-                    
-        /*En el momento que encontramos un valor para vecesQueSeRepite mayor que el maximaVecesQueSeRepite, primero tenemos que descartar
-        la primera vez que nos pasa que es con el segundo valor a cero. */
+        /*En el momento que encontramos un valor para vecesQueSeRepite mayor que el maximaVecesQueSeRepite. */
         } else if (vecesQueSeRepite>maximaVecesQueSeRepite){
                   
-                        if (vecesQueSeRepite==1){
-                          maximaVecesQueSeRepite = vecesQueSeRepite;
-
-        /*Despues comparamos que no sea un valor que hayamos introducido a nuestra cadena*/
-                        }else{
-                        
+                 //Establecemos que si hay moda, si hay numeros repetidos, en el primer numero ya entra en este bucle y lo establece       
                           sihay=true;
                          if (miarray[i]==miarray[i-1]){
 
@@ -94,13 +79,8 @@
                    
                         }
                  
-                      }
-                           }
-               
-
-
-                   
-
+                      
+         }
              
   }       
 
