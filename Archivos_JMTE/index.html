@@ -1,41 +1,77 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archivo JMTE</title>
+</head>
+<body>
     <script>
-let miarray=[];
-let suma=0;
+        //Se define un array vacio en el cual despues le introduciremos los numeros aleatorios
+        let array=[];
+        //Definimos el acumulador suma donde guardaremos el sumatorio de los numeros del array
+        let suma=0;
+        
+         //Cargo el array con 10 valores aleatorios entre 0 y 100
+         for(let i=0;i<10;i++){
+             array[i]=Math.floor((Math.random() * (101-0))+0);
+             //Con el acumulador suma, vamos sumando cada elemento creado en el array, es decir, vamos sumando los numeros
+             suma=suma+array[i]
+        
+             
+            
+        }
+        
+        // Ahora utilizamos el metodo de la burbuja para ordenar los elementos del array de menor a mayor
+        for (let i=0; i<array.length; i++){
+         
+          for (let j=0; j<array.length-1; j++) {
+              if (array[j]>array[i]) {
+                  aux=array[i]
+                  array[i]=array[j]
+                  array[j]=aux
+              } /* Fin del if*/
+          } /* Fin del for interno*/
+        } /* fin del for externo*/
+        
+        //Presentamos en la consola del navegador los valores del array
+        console.log(`El array esta formado por los siguientes numeros: ${array}`);
+        
+        
+        //Calculamos  la media de los numeros del array 
+        let media= suma/array.length;
+        
+        //Se presenta en la pantalla de la consola el valor de la media
+        console.log(`La media es: ${media} `);
+        
+        //Como ya tenemos el array ordenado, podemos calcular el valor de la mediana
 
- //Cargo el array con 10 valores aleatorios entre 0 y 100
- for(let i=0;i<10;i++){
-     miarray[i]=Math.floor((Math.random() * (101-0))+0);
-     //Con el acumulador suma, vamos sumando cada elemento creado en el array, es decir, vamos sumando los numeros
-     suma=suma+miarray[i]
-
-     
+        /*Como el valor de elementos del array es par, la posicion central da un numero exacto, por lo 
+        que no es necesario hacer el supuesto*/
+        let mediana;
+    if (array.length%2==0) {
+        let pos_central=array.length/2
+        let pos_anterior=pos_central-1
+        let elemento_central=array[pos_central]
+        let elemento_posicion_anterior=array[pos_anterior]
+         mediana=(elemento_central+elemento_posicion_anterior)/2
     
-}
-
-// Ahora utilizamos el metodo de la burbuja para ordenar los elementos del array de menor a mayor
-for (let i=0; i<miarray.length; i++){
- 
-  for (let j=0; j<miarray.length-1; j++) {
-      if (miarray[j]>miarray[i]) {
-          aux=miarray[i]
-          miarray[i]=miarray[j]
-          miarray[j]=aux
-      } /* Fin del if*/
-  } /* Fin del for interno*/
-} /* fin del for externo*/
+    /*Si el numero de elementos fuese impar, calculariamos una nueva posicion central restando uno al numero de elementos del array
+     y lo dividimos entre dos, el valor de ese elemento del array en esa posicion es la mediana*/
+    } else {
+        let pos_central=(array.length-1)/2
+        mediana=array[pos_central]
+    }
+    
+        console.log(`El valor de la mediana es: ${mediana}`);
 
 
-console.log(`El array esta formado por los siguientes numeros: ${miarray}`);
+    
+        
+        
+     </script>
+</body>
 
-
-//Calculo la media 
-let media= suma/10;
-
-//Se presenta en la pantalla de la consola
-console.log(`La media es: ${media} `);
-
-
-
-    </script>
+   
 </html>
