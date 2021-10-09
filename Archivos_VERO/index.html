@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AE-1. Javascript: operaciones en array de números </title>
 </head>
 <script type="text/javascript">
 /*Req1-.Realiza un programa en JavaScript que recorra un array de 10 números y calcule la media aritmética
@@ -20,35 +20,73 @@ for (let i = 0; i <= 9; i++) {
     arrayAleat[i]=Math.floor((Math.random() * (101-0))+0);
     suma=suma+arrayAleat[i]; //guardamos la suma de los valores del array en la variable suma
 }
+
+
+console.log(`Los valores del array sin ordenar son: ${arrayAleat}`) // muestra los valores sin ordenar
+
+//Necesitaremos ordenar los valores previamente para calcular la moda 
+
+arrayAleat.sort(function(a, b){return a - b}) //El método sort() puede ordenar valores negativos, cero y positivos en el orden correcto. 
+//Cuando compara dos valores, los envía a nuestra función de comparación y luego ordena los valores de acuerdo al resultado devuelto.
+console.log (`Los valores del array ordenados son: ${arrayAleat}`)
+
+console.log( `La suma de los valores del array es :${suma}`) // imprimimos la suma de los valores del array
+
 let mediaArit=suma/10; //calculamos la media aritmética de los valores
 
-/*Req2-.Calcular también la moda*/
+console.log(`La media de los valores del array es :${mediaArit}`); //muestra el valor de la media
 
-/*function moda(){
-    let contador=0;
-    
-    //ver cuántas veces se repite un número en el array
-    for (let i = 0; i < arrayAleat.length; i++) {
-        let valor = arrayAleat[i];
-        let valorcomp=arrayAleat[i++]
-        if (valor==valorcomp ){
-            contador++
-        }
-        else valor= valor
 
-        
+/*Req2-.Calcular también la moda.
+La moda es el valor cuya frecuencia relativa es mayor. En un conjunto puede haber más de una moda.
+*/
+
+function moda(arrayAleat) {
+  var frequencia = {}; // array para frecuencias
+  var maxFrec = 0; // almacenará la máxima frecuencia
+  var modas = [];
+
+  for (var i in arrayAleat) {
+    frequencia[arrayAleat[i]] = (frequencia[arrayAleat[i]] || 0) + 1; // incrementará la frecuencia
+
+    if (frequencia[arrayAleat[i]] > maxFrec) { // comprobar si la frecuencia es la máxima hasta ahora
+      maxFrec = frequencia[arrayAleat[i]]; // actualizar el máximo
     }
+  }
 
-}*/
+  for (var k in frequencia) {
+    if (frequencia[k] == maxFrec) {
+      modas.push(k);
+    }
+  }
 
-console.log(arrayAleat)
-console.log(suma)
-console.log(mediaArit)
+  return modas;
+}
 
+console.log('La moda /modas en el array es/son :', moda(arrayAleat)); // muestra el valor de la moda
 
+/*Req3-.Calcular también la mediana
+
+La mediana es el valor que ocupa la posición central, para ello es importante que los valores estén ordenados
+
+*/
+
+function mediana(arrayAleat){
+
+  if(arrayAleat.length ===0) return 0
+
+  var centro = Math.floor(arrayAleat.length / 2); //calculamos la posición central del array
+
+  if (arrayAleat.length % 2)
+    return arrayAleat[centro];
+  else
+    return (arrayAleat[centro - 1] + arrayAleat[centro]) / 2.0;
+}
+console.log('La mediana en el array es:', mediana(arrayAleat)); // muestra el valor de la mediana
 
 
 </script>
+
 <body>
     
 </body>
